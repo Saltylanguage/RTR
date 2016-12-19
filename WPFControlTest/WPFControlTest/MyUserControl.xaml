@@ -7,20 +7,7 @@
              xmlns:local="clr-namespace:WPFControlTest"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <UserControl.Resources>
-        
-    <ControlTemplate x:Key="ColorPickerTemplate" TargetType="{x:Type wpfTool:ColorPicker}">
-        <wpfTool:ColorPicker Background="{TemplateBinding Background}"
-                             x:Name="Bd"/>
 
-            <ControlTemplate.Triggers>
-                <Trigger Property="IsEnabled" Value="False">
-                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" TargetName="Bd"/>
-                </Trigger>
-            </ControlTemplate.Triggers>
-    </ControlTemplate>
-        
-    </UserControl.Resources>
     
     <Grid Background="White">
         <Grid.ColumnDefinitions>
@@ -38,15 +25,14 @@
         </StackPanel>
 
         <StackPanel Orientation="Vertical" Grid.Column="1">
-            <TextBox Width="30" HorizontalAlignment="Left" Margin="0,4,0,0"/>
-            <TextBox Width="30" HorizontalAlignment="Left" Margin="0,4,0,0"/>
-            <TextBox Width="30" HorizontalAlignment="Left" Margin="0,4,0,0"/>
-            <TextBox Width="30" HorizontalAlignment="Left" Margin="0,6,0,0"/>
+            <TextBox Name="Redvalue"  Width="30" HorizontalAlignment="Left" Margin="0,4,0,0" TextChanged="RedValue_TextChanged"/>
+            <TextBox Name="GreenValue" Width="30" HorizontalAlignment="Left" Margin="0,4,0,0" TextChanged="GreenValue_TextChanged"/>
+            <TextBox Name="BlueValue"  Width="30" HorizontalAlignment="Left" Margin="0,4,0,0" TextChanged="BlueValue_TextChanged"/>
+            <TextBox Name="AlphaValue"  Width="30" HorizontalAlignment="Left" Margin="0,6,0,0" TextChanged="AlphaValue_TextChanged"/>
         </StackPanel>
 
-        <wpfTool:ColorPicker Name="colorPicker_1" Grid.Column="2" Foreground="Transparent" SelectedColorChanged="colorPicker_1_LostFocus"
-            HorizontalAlignment="Left" VerticalAlignment="Top" Height="90" Width="90" Margin="10,4" ColorMode="ColorCanvas" ShowAdvancedButton="False" SelectedColor="White" 
-            LostFocus="colorPicker_1_LostFocus">
+        <wpfTool:ColorPicker Name="colorPicker_1" Grid.Column="2" Foreground="Transparent" SelectedColorChanged="colorPicker_1_ValueChanged"
+            HorizontalAlignment="Left" VerticalAlignment="Top" Height="90" Width="90" Margin="10,4" ColorMode="ColorCanvas" ShowAdvancedButton="False">
         </wpfTool:ColorPicker>
        
 
